@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracking_app/constants/text_styles.dart';
-import 'package:habit_tracking_app/models/task_preset.dart';
-import 'package:habit_tracking_app/ui/tasks/animeted_task.dart';
+import 'package:habit_tracking_app/models/task.dart';
+ import 'package:habit_tracking_app/ui/tasks/animeted_task.dart';
 import 'package:habit_tracking_app/ui/theming/app_theme.dart';
 
 class TaskWithName extends StatelessWidget {
@@ -9,7 +9,7 @@ class TaskWithName extends StatelessWidget {
     Key? key,
     required this.task,
   }) : super(key: key);
-  final TaskPreset task;
+  final Task  task;
   @override
   Widget build(BuildContext context) {
     return Column(

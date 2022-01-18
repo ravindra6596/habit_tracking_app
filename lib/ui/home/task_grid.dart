@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:habit_tracking_app/models/task_preset.dart';
+import 'package:habit_tracking_app/models/task.dart';
 import 'package:habit_tracking_app/ui/tasks/task_with_name.dart';
 
 class TaskGrid extends StatelessWidget {
@@ -9,7 +9,7 @@ class TaskGrid extends StatelessWidget {
     Key? key,
     required this.tasks,
   }) : super(key: key);
-  final List<TaskPreset> tasks;
+  final List<Task > tasks;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
