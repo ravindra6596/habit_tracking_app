@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
- import 'package:habit_tracking_app/constants/app_colors.dart';
+import 'package:habit_tracking_app/constants/app_colors.dart';
 import 'package:habit_tracking_app/constants/text_styles.dart';
 import 'package:habit_tracking_app/ui/theming/app_theme.dart';
 
 class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({Key? key, required this.title, this.onPressed})
-      : super(key: key);
+  const PrimaryButton({
+    Key? key,
+    required this.title,
+    this.onPressed,
+  }) : super(key: key);
   final String title;
   final VoidCallback? onPressed;
 

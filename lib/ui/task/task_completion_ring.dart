@@ -17,8 +17,8 @@ class TaskCompletionRing extends StatelessWidget {
       child: CustomPaint(
         painter: RingPainter(
           progress: progress,
-          taskCompletedColor: themeData.accent,
           taskNotCompletedColor: themeData.taskRing,
+          taskCompletedColor: themeData.accent,
         ),
       ),
     );
@@ -28,40 +28,37 @@ class TaskCompletionRing extends StatelessWidget {
 class RingPainter extends CustomPainter {
   RingPainter({
     required this.progress,
-    required this.taskCompletedColor,
     required this.taskNotCompletedColor,
+    required this.taskCompletedColor,
   });
   final double progress;
-  final Color taskCompletedColor;
   final Color taskNotCompletedColor;
+  final Color taskCompletedColor;
 
   @override
   void paint(Canvas canvas, Size size) {
     final notCompleted = progress < 1.0;
-    final strockWidth = size.width / 15;
+    final strokeWidth = size.width / 15.0;
     final center = Offset(size.width / 2, size.height / 2);
-    final radius =notCompleted? (size.width - strockWidth) / 2:size.width/2;
+    final radius =
+        notCompleted ? (size.width - strokeWidth) / 2 : size.width / 2;
 
-    //for bg circle
     if (notCompleted) {
       final backgroundPaint = Paint()
         ..isAntiAlias = true
-        ..strokeWidth = strockWidth
+        ..strokeWidth = strokeWidth
         ..color = taskNotCompletedColor
         ..style = PaintingStyle.stroke;
       canvas.drawCircle(center, radius, backgroundPaint);
     }
-    // for foreground circle
+
     final foregroundPaint = Paint()
       ..isAntiAlias = true
-      ..strokeWidth = strockWidth
+      ..strokeWidth = strokeWidth
       ..color = taskCompletedColor
       ..style = notCompleted ? PaintingStyle.stroke : PaintingStyle.fill;
     canvas.drawArc(
-      Rect.fromCircle(
-        center: center,
-        radius: radius,
-      ),
+      Rect.fromCircle(center: center, radius: radius),
       -pi / 2,
       2 * pi * progress,
       false,

@@ -1,4 +1,5 @@
-import 'package:habit_tracking_app/constants/app_assets.dart';
+
+import '../constants/app_assets.dart';
 
 class TaskPreset {
   const TaskPreset({required this.name, required this.iconName});

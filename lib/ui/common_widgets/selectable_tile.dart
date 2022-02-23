@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SelectableTile extends StatefulWidget {
-  const SelectableTile({Key? key, required this.builder, this.onPressed})
+  const SelectableTile({Key? key, required this.builder, this.onPressed,})
       : super(key: key);
   final Widget Function(BuildContext, bool) builder;
   final VoidCallback? onPressed;

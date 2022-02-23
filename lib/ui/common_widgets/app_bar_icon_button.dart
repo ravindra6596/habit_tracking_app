@@ -3,9 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:habit_tracking_app/ui/theming/app_theme.dart';
 
 class AppBarIconButton extends StatelessWidget {
-  const AppBarIconButton(
-      {Key? key, required this.iconName, required this.onPressed})
-      : super(key: key);
+  const AppBarIconButton({
+    Key? key,
+    required this.iconName,
+    required this.onPressed,
+  }) : super(key: key);
   final String iconName;
   final VoidCallback onPressed;
 
