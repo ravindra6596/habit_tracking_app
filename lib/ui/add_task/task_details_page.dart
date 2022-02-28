@@ -99,9 +99,9 @@ class _ConfirmTaskContentsState extends ConsumerState<ConfirmTaskContents> {
         // * Pop back to HomePage, using `rootNavigator: true` to ensure we dismiss the entire navigation stack.
         Navigator.of(context, rootNavigator: true).pop();
       } catch (e) {
-         if (kDebugMode) {
-           print(e);
-         }
+        if (kDebugMode) {
+          print(e);
+        }
         rethrow;
       }
     }
@@ -130,9 +130,9 @@ class _ConfirmTaskContentsState extends ConsumerState<ConfirmTaskContents> {
         // * Pop back to HomePage, using `rootNavigator: true` to ensure we dismiss the entire navigation stack.
         Navigator.of(context, rootNavigator: true).pop();
       } catch (e) {
-         if (kDebugMode) {
-           print(e);
-         }
+        if (kDebugMode) {
+          print(e);
+        }
         rethrow;
       }
     }
@@ -156,49 +156,42 @@ class _ConfirmTaskContentsState extends ConsumerState<ConfirmTaskContents> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [  
-        // * Make content scrollable if needed
-        SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SizedBox(height: 22),
-              ConfirmTaskHeader(
-                iconName: _iconName,
-                onChangeIcon: _changeIcon,
-              ),
-              const SizedBox(height: 28),
-              const TextFieldHeader('TITLE:'),
-              CustomTextField(
-                key: _textFieldKey,
-                initialValue: widget.task.name,
-                hintText: 'Enter task title...',
-              ),
-              if (!widget.isNewTask) ...[
-                Container(height: 48),
-                TaskPresetListTile(
-                  taskPreset: const TaskPreset(
-                      name: 'Delete Task', iconName: AppAssets.delete),
-                  showChevron: false,
-                  onPressed: (_) => _deleteTask(),
-                ),
-              ],
-            ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const SizedBox(height: 12),
+          ConfirmTaskHeader(
+            iconName: _iconName,
+            onChangeIcon: _changeIcon,
           ),
-        ),
-        // * Pin PrimaryButton to the bottom
-        const Spacer(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: PrimaryButton(
-            title: widget.isNewTask ? 'SAVE TASK' : 'DONE',
-            onPressed: _saveTask,
+          const SizedBox(height: 18),
+          const TextFieldHeader('TITLE:'),
+          CustomTextField(
+            key: _textFieldKey,
+            initialValue: widget.task.name,
+            hintText: 'Enter task title...',
           ),
-        ),
-        const SizedBox(height: 10.0),
-      ],
+          if (!widget.isNewTask) ...[
+            Container(height: 10),
+            TaskPresetListTile(
+              taskPreset: const TaskPreset(
+                  name: 'Delete Task', iconName: AppAssets.delete),
+              showChevron: false,
+              onPressed: (_) => _deleteTask(),
+            ),
+          ],
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 40,
+            ),
+            child: PrimaryButton(
+              title: widget.isNewTask ? 'SAVE TASK' : 'DONE',
+              onPressed: _saveTask,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

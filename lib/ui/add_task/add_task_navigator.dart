@@ -29,8 +29,6 @@ class AddTaskNavigator extends StatelessWidget {
             case AddTaskRoutes.root:
               return const AddTaskPage();
             case AddTaskRoutes.confirmTask:
-              // * The TaskPreset is passed to the route arguments, so here
-              // * we extract it and use it to create a new Task object
               final taskPreset = routeSettings.arguments as TaskPreset;
               final task = Task.create(
                 name: taskPreset.name,
